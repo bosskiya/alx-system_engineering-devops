@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(($WATER+$STIR))
+echo $(echo "ibase=5; $(echo "$WATER" | tr 'water' 01234) + ibase=4; $(echo "$STIR" | tr 'stir' 0123)" | bc | awk '{n=$1; b="bestcholx"; s=""; while(n){s=substr(b,n%9+1,1) s; n=int(n/9)}; print s}')
